@@ -1,8 +1,3 @@
-Here is a **clean, professional, polished README.md** made exactly for your portfolio repo.
-Just **copy–paste** this into your README file on VS Code or GitHub.
-
----
-
 # 🌐 Personal Portfolio Website
 
 This repository contains my **Personal Portfolio Website**, created for **Assignment 1** of the Vault of Codes Internship Program.
@@ -122,6 +117,3 @@ However, suggestions are always welcome!
 
 This project is open-source and free to use for educational purposes.
 
----
-
-If you want, I can also create a **professional image banner** to show at the top of your README.
