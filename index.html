@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deepanjali Singh - Portfolio</title>
+  <style>
+    /* main styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+      transition: background-color 0.4s, color 0.4s;
+    }
+
+    body {
+      background-color: #d2e6ed;
+      color: #2e2e2e;
+    }
+
+    /* Dark Mode Styles */
+    body.dark {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    body.dark header {
+      background-color: #0c2239;
+      color: #e0e0e0;
+    }
+
+    body.dark .section h3 {
+      color: #4dd0e1;
+      border-color: #4dd0e1;
+    }
+
+    body.dark .contact {
+      background-color: #0d253f;
+      color: #f1f1f1;
+    }
+
+    body.dark .contact a {
+      color: #4dd0e1;
+    }
+
+    body.dark .profile-pic {
+      border-color: #4dd0e1;
+    }
+    body.dark .projects-section h3 {
+      color: #4dd0e1;
+    }
+
+    body.dark .projects-list li {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+    }
+
+    body.dark .projects-list strong {
+      color: #4dd0e1;
+    }
+
+    body.dark .projects-list em {
+      color: #bbbbbb;
+    }
+
+    body.dark .github-link {
+      background: #4dd0e1;
+      color: #121212;
+    }
+
+    body.dark .github-link:hover {
+      background: #33b9c8;
+    }
+
+    /* Header */
+    header {
+      background-color: #003153;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      font-size: 1.1em;
+      margin-top: 8px;
+      color: #cfd8dc;
+    }
+
+    /* Mode Toggle Button */
+    .toggle-btn {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      background: none;
+      border: 2px solid white;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9em;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toggle-btn:hover {
+      background-color: rgba(255,255,255,0.1);
+    }
+
+    /* Profile Section */
+    .profile-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 40px 0;
+    }
+
+    /* icon inside toggle */
+    .toggle-btn .icon {
+      width: 18px;
+      height: 18px;
+      display: inline-block;
+      vertical-align: middle;
+      fill: currentColor;
+    }
+
+    /* show/hide icons based on mode */
+    .toggle-btn .moon { display: none; }
+    body.dark .toggle-btn .sun { display: none; }
+    body.dark .toggle-btn .moon { display: inline-block; }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: #c1dbe0;
+      background-image: url('pfp.jpg');
+      background-size: cover;
+      background-position: center;
+      border: 4px solid #007b83;
+      margin-bottom: 20px;
+    }
+
+    .profile-section h2 {
+      color: #003153;
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+
+    body.dark .profile-section h2 {
+      color: #4dd0e1;
+    }
+
+    .profile-section p {
+      width: 70%;
+      max-width: 700px;
+      text-align: center;
+      line-height: 1.6;
+      color: #4a4a4a;
+    }
+
+    body.dark .profile-section p {
+      color: #cccccc;
+    }
+
+    /* Sections */
+    .section {
+      margin: 60px 10%;
+    }
+
+    .section h3 {
+      font-size: 1.8em;
+      color: #007b83;
+      border-bottom: 2px solid #007b83;
+      display: inline-block;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+    }
+
+    .section ul {
+      list-style-type: disc;
+    }
+
+    .section ul li {
+      margin: 12px 0;
+      line-height: 1.6;
+    }
+
+    .section ol {
+      list-style-type: number;
+    }
+
+    .section ul li {
+      margin: 12px 0;
+      line-height: 1.6;
+    }
+
+    /* Contact */
+    .contact {
+      background-color: #003153;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 60px;
+    }
+
+    .contact p {
+      margin: 8px 0;
+      font-size: 1.05em;
+    }
+
+    .contact a {
+      color: #4dd0e1;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive Sections */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+
+      .profile-section p {
+        width: 90%;
+      }
+
+      .section {
+        margin: 40px 5%;
+      }
+    }
+
+    /* Project Section */
+    projects-section {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .projects-section h3 {
+    text-align: center;
+    font-size: 28px;
+    color: #222;
+    margin-bottom: 30px;
+  }
+
+  .projects-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .projects-list li {
+    background: #98c2e9;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .projects-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  .projects-list strong {
+    color: #0a66c2;
+    font-size: 18px;
+  }
+
+  .projects-list em {
+    display: block;
+    color: #555;
+    margin-top: 6px;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .github-link {
+    display: inline-block;
+    margin-top: 8px;
+    background: #0a66c2;
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: background 0.3s ease;
+  }
+
+  .github-link:hover {
+    background: #004182;
+  }
+  </style>
+</head>
+<body>
+
+  <header>
+    <button class="toggle-btn" onclick="toggleMode()">Dark Mode</button>
+    <h1>Deepanjali Singh</h1>
+    <p>B.Tech in Computer Science & Engineering | 3rd Year</p>
+  </header>
+
+  <section class="profile-section">
+    <div class="profile-pic"></div>
+    <h2>About Me</h2>
+    <p>
+    Hi! I’m <strong>Deepanjali</strong>, a passionate Computer Science Engineering student with a growing interest in web and Android development. I love turning ideas into clean, functional, and visually appealing digital experiences. Currently, I’m exploring frontend development, building interactive websites, and experimenting with Java and Android Studio. I’ve also worked across multiple domains and technologies including DBMS, Python for Data Analysis, and MySQL. When I’m not coding, you’ll find me exploring new tech trends, reading about AI advancements, or brainstorming my next project idea. </p>
+    <p>
+    📍<strong>Based in India</strong> | 💻 <strong>Aspiring Developer</strong> | 🎯 <strong>Always building something new</strong>
+    </p>
+  </section>
+
+  <section class="section">
+    <h3>Education</h3>
+      <p><strong>B.Tech in Computer Science & Engineering</strong> – Current (3rd Year | CGPA: 9.5/10 )</p>
+      <p><strong>12th:</strong> Divine Public School, Gorakhpur</p>
+      <p><strong>10th:</strong> Divine Public School, Gorakhpur</p>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h3>Skills</h3>
+    <ul>
+      <li>HTML, CSS</li>
+      <li>C, C++</li>
+      <li>Python</li>
+      <li>MySQL, MongoDB</li>
+      <li>MS Office</li>
+      <li>AI / ML</li>
+      <li>Java, Android Studio (Learning)</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="projects-section">
+  <h3>Projects</h3>
+  <ol class="projects-list">
+    <li>
+      <strong>Blood Bank Management System:</strong>
+      <p>A DBMS project built using MySQL and Python to manage donors, recipients, hospitals, and blood inventory efficiently.</p>
+      <em>Technologies:</em> MySQL, Python
+    </li>
+
+    <li>
+      <strong>Create GIF using Python:</strong>
+      <p>A simple Python script that generates animated GIFs from multiple images using Pillow, NumPy, and ImageIO.</p>
+      <em>Technologies:</em> Python, Pillow, NumPy, ImageIO
+      <p></p><a href="https://github.com/Deepanjali15/Create-GIF-using-Python" class="github-link" target="_blank">View on GitHub</a></p>
+    </li>
+
+    <li>
+      <strong>Investment Portfolio Optimization:</strong>
+      <p>A C program that applies the 0/1 Knapsack algorithm to optimize investment allocation for maximum profit within budget constraints.</p>
+      <em>Technologies:</em> C (Dynamic Programming)
+      <p><a href="https://github.com/Deepanjali15/investment-portfolio-optimization" class="github-link" target="_blank">View on GitHub</a></p>
+    </li>
+
+    <li>
+      <strong>Skience (Weather Forecasting App):</strong>
+      <p>A weather web app that fetches real-time forecasts using a Weather API and displays temperature, humidity, and conditions for any city.</p>
+      <em>Technologies:</em> HTML, CSS, JavaScript, Weather API
+      <p><a href="https://github.com/Deepanjali15/Skience" class="github-link" target="_blank">View on GitHub</a></p>
+    </li>
+
+    <li>
+      <strong>Noted Ma’am (AI Meeting Decision Tracker):</strong>
+      <p>A browser extension that automates meeting documentation with transcription, attendance tracking, and task assignment using AI.</p>
+      <em>Technologies:</em> JavaScript, Web APIs, AI Transcription & Diarization Models
+    </li>
+  </ol>
+</div>
+
+  <section class="contact">
+    <h3>Contact Me</h3>
+    <p>Email: <a href="mailto:singh05deepanjali@gmail.com">singh05deepanjali@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/deepanjali-singh-48a060289/">linkedin.com/in/deepanjali</a></p>
+    <p>GitHub: <a href="https://github.com/Deepanjali15">github.com/Deepanjali15</a></p>
+  </section>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark");
+      const btn = document.querySelector(".toggle-btn");
+      if (document.body.classList.contains("dark")) {
+        btn.textContent = "Light Mode";
+      } else {
+        btn.textContent = "Dark Mode";
+      }
+    }
+  </script>
+
+</body>
+</html>
